@@ -159,13 +159,13 @@ const cvvNumberValidator = () => {
 
 // Helper Validation Functions
 function validationFail(element) {
-    element.parentElement.className = 'not-valid';
+    element.parentElement.classList.add('not-valid');
     element.parentElement.classList.remove('valid');
     element.parentElement.lastElementChild.style.display = 'block';
 };
 
 function validationPass(element) {
-    element.parentElement.className = 'valid';
+    element.parentElement.classList.add('valid');
     element.parentElement.classList.remove('not-valid');
     element.parentElement.lastElementChild.style.display = '';
 }
@@ -197,6 +197,8 @@ form.addEventListener('submit', e => {
          validationPass(activitiesFieldset);
       }
 
+      // If Credit Card is chosen, then these validators will execute.
+
       if (paymentOptions.options[1].selected) {
         expYearValidator(expMonth);
         expYearValidator(expYear);
@@ -217,7 +219,7 @@ form.addEventListener('submit', e => {
       
 });
 
-// Section #9 Accessibility
+// Section #9 Accessibility-Tab between section on activites page highlight.
 
 selection.addEventListener('focus', e => {
     e.target.parentElement.className = 'focus';
